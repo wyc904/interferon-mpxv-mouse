@@ -1,0 +1,60 @@
+# ============================================================================
+# 原始数据与中间结果一律不提交
+# ============================================================================
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+results/*
+!results/.gitkeep
+
+# 缓存与日志
+_cache/
+logs/
+*.log
+Rplots.pdf
+
+# R / Python 环境与历史
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+.Renviron
+renv/library/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 数据文件与大型二进制
+*.rds
+*.RData
+*.rda
+*.xlsx
+*.xls
+*.csv
+!metadata/sample_sheet.csv
+*.bam
+*.fastq
+*.fq
+*.gz
+*.zip
+*.doc
+*.docx
+*.ppt
+*.pptx
+*.tif
+*.tiff
+
+# 图片与 PDF：只保留 docs/figures 下的预览
+*.pdf
+!docs/figures/*.pdf
+*.png
+!docs/figures/*.png
+*.svg
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
