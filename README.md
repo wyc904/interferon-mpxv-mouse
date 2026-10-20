@@ -6,6 +6,8 @@
 
 > **本仓库不包含原始数据。** 计数矩阵、RDS 缓存、Excel 结果表、论文稿件、参考文献 PDF 均未上传。仓库只保留代码、样本表、分析说明和图件预览。
 
+**研究背景**：猴痘病毒（MPXV）Clade Ib 是近年传播的毒株分支。本项目用 **BALB/c（免疫正常）** 与 **AG129（I 型干扰素受体缺陷）** 小鼠比较 MPXV 感染后的肺、脾转录组反应，并评估两个治疗组（G3/G4）相对感染组的回调效应。分析重点是干扰素/抗病毒通路、DEG 数量与方向、GO 富集和关键基因热图。
+
 ---
 
 ## 1. 研究设计
@@ -44,6 +46,7 @@ interferon-mpxv-mouse/
 │  ├─ sample_sheet.csv        # 66 个样本的分组/组织/重复信息
 │  └─ sample_sheet_notes.txt  # 样本表构建与核对报告
 ├─ scripts/
+│  ├─ README.md              # 代码分类与运行顺序（先读这个）
 │  ├─ 1009_pipeline/          # 主流程：4 套数据集 × 6 个比较
 │  │  ├─ 01_deseq2.R
 │  │  ├─ 02_basic_figures.R
@@ -61,6 +64,7 @@ interferon-mpxv-mouse/
 │  │  └─ utils/config.R
 │  └─ utilities/              # 样本表构建、源文件检查等 Python 小工具
 ├─ docs/
+│  ├─ README.md              # 文档索引与阅读顺序
 │  ├─ analysis_notes.md       # 详细分析说明（推荐先读）
 │  ├─ figure_map.md           # 图件 → 脚本 → 输入/输出对照
 │  ├─ data_dictionary.md      # 样本表、计数矩阵、输出表字段说明
@@ -69,8 +73,22 @@ interferon-mpxv-mouse/
 │  ├─ raw/                    # 放原始计数矩阵（.gitignore 已排除）
 │  └─ processed/              # 放手工整理的表（.gitignore 已排除）
 ├─ results/                   # 运行输出（.gitignore 已排除）
-└─ legacy/                    # 133 个历史脚本（按内容去重）+ MANIFEST.tsv
+└─ legacy/                    # 133 个历史脚本（按内容去重）+ MANIFEST.tsv + FAMILIES.md
 ```
+
+### 2.1 代码分类
+
+| 类别 | 目录 | 用途 | 入口 |
+|---|---|---|---|
+| 主分析流程 | `scripts/1009_pipeline/` | 4 套数据集 × 6 个比较的 DESeq2、PCA、DEG、韦恩、火山、GO、热图、合成图 | `01_deseq2.R` → `05_composite.R` |
+| 三品系图件 | `scripts/3mice_pipeline/` | BALB/c vs C57BL/6 的 UpSet、Top DEG 热图、GO 气泡图 | `01_export_all_degs.R` → `04_go_enrich_bubble.R` |
+| 工具脚本 | `scripts/utilities/` | 样本表构建、源文件检查、模板提取 | 按需运行 |
+| 元数据 | `metadata/` | 66 个样本的分组/组织/重复；构建与核对报告 | 不需要运行 |
+| 文档 | `docs/` | 分析说明、图件对照、数据字典、图件预览 | 先读 `docs/README.md` |
+| 运行环境 | `environment/` | `packages.R` + `sessionInfo.txt` | `Rscript environment/packages.R` |
+| 历史归档 | `legacy/` | 首版投稿/二次调图的 133 个去重脚本 + `MANIFEST.tsv` | 仅追溯，不直接运行 |
+
+> 每个脚本的用途、依赖和运行顺序见 [`scripts/README.md`](scripts/README.md)。
 
 ---
 

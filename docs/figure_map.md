@@ -45,7 +45,7 @@
 
 ## 3. 历史脚本（`legacy/`）
 
-`legacy/scripts/` 下是首版投稿与二次调图的代码，按文件内容去重后保留 133 个；完整原始路径见 `legacy/MANIFEST.tsv`。这些脚本包含旧的绝对路径（如 `D:/Desktop/...`），不能直接运行，仅用于追溯每张图的生成过程。
+`legacy/scripts/` 下是首版投稿与二次调图的代码，按文件内容去重后保留 133 个；完整原始路径见 `legacy/MANIFEST.tsv`，按阶段/关键词分类见 `legacy/README.md` 和 `legacy/FAMILIES.md`。这些脚本包含旧的绝对路径（如 `D:/Desktop/...`），不能直接运行，仅用于追溯每张图的生成过程。
 
 主要图件族与脚本关键词：
 
