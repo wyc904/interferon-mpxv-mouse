@@ -66,3 +66,4 @@
 - seq_name 前缀字面为 'BALB/-' (疑为 BALB/c 的录入变体), 已在 strain 列规范为 BALB/c
 - docx 仅说明: 数字开头=BALB/c, 字母开头=AG129; G1-G4 代表什么(时间点/剂量/处理)文档未说明
 - counts 来源: featureCounts v2.0.3, -p -B -C -t exon -g gene_name, GTF=Cell Ranger refdata-gex-GRCm39-2024-A
+- 【2026-10-21 补充】G3 = Tecovirimat 治疗组；G4 = DMSO 溶剂对照（vehicle）。关键药物效应比较为 G3vsG4（G4vsG3 为反向）。

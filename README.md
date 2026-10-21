@@ -1,12 +1,14 @@
 # MPXV Clade Ib 小鼠感染模型 RNA-seq 分析代码
 
-**Pathogenic Signatures and Antiviral Evaluation of MPXV Clade Ib in Mouse Models**
+**Pathogenic signatures and therapeutic evaluation of emergent MPXV Clade Ib in low-susceptibility and immunocompromised mouse models**
+
+*BMC Microbiology* 2026, 26:723 · [doi:10.1186/s12866-026-05273-4](https://doi.org/10.1186/s12866-026-05273-4)
 
 本仓库包含该研究转录组部分的**可复现分析代码**：DESeq2 差异分析、PCA、DEG 数量柱状图、韦恩图、UpSet 图、火山图、GO 富集气泡图、热图以及投稿用合成图。
 
 > **本仓库不包含原始数据。** 计数矩阵、RDS 缓存、Excel 结果表、论文稿件、参考文献 PDF 均未上传。仓库只保留代码、样本表、分析说明和图件预览。
 
-**研究背景**：猴痘病毒（MPXV）Clade Ib 是近年传播的毒株分支。本项目用 **BALB/c（免疫正常）** 与 **AG129（I 型干扰素受体缺陷）** 小鼠比较 MPXV 感染后的肺、脾转录组反应，并评估两个治疗组（G3/G4）相对感染组的回调效应。分析重点是干扰素/抗病毒通路、DEG 数量与方向、GO 富集和关键基因热图。
+**研究背景**：猴痘病毒（MPXV）Clade Ib 是近年传播的毒株分支。本项目用 **BALB/c（免疫正常）** 与 **AG129（I 型干扰素受体缺陷）** 小鼠比较 MPXV 感染后的肺、脾转录组反应，并评估 **Tecovirimat（G3）** 与 **DMSO 溶剂对照（G4）** 相对感染组的转录组变化。分析重点是干扰素/抗病毒通路、DEG 数量与方向、GO 富集和关键基因热图。
 
 ---
 
@@ -16,7 +18,8 @@
 - **分组**：
   - `G1`：未感染（uninfected）
   - `G2`：感染（infected）
-  - `G3` / `G4`：两个治疗组（treatment 1 / treatment 2；具体药物名待实验方确认）
+  - `G3`：Tecovirimat 治疗组
+  - `G4`：DMSO 溶剂对照（vehicle）
 - **数据来源**：featureCounts v2.0.3 基因水平计数（`-p -B -C -t exon -g gene_name`；参考基因组 GRCm39）。
 - **分析策略**：按「品系 × 组织」拆成 4 套数据集，每套独立做 DESeq2，再统一出图。
 
@@ -31,6 +34,8 @@
 
 **6 个比较组**：`G2vsG1`、`G3vsG1`、`G3vsG2`、`G4vsG1`、`G4vsG2`、`G4vsG3`。
 
+> `G3vsG4` 是 Tecovirimat 相对 DMSO 溶剂的关键药物效应比较；`G4vsG3` 是其反向，解读时注意方向。
+
 ---
 
 ## 2. 仓库结构
@@ -38,6 +43,8 @@
 ```text
 interferon-mpxv-mouse/
 ├─ README.md
+├─ LICENSE                    # MIT
+├─ CITATION.cff               # 论文引用信息
 ├─ .gitignore
 ├─ environment/
 │  ├─ packages.R              # 安装 R 包
@@ -188,7 +195,7 @@ Rscript scripts/3mice_pipeline/04_go_enrich_bubble.R
 | 火山图网格（panel c） | `legacy/` 中 `8bc-2次调图.R` 等首版脚本 | 预览 `docs/figures/volcano_panel_c.png` |
 | 4 套数据集整套合成图 | `scripts/1009_pipeline/05_composite.R` | `results/1009/*/07-合成图/Composite_*.pdf/png`；预览 `docs/figures/composite_*.png` |
 
-> 论文正文/补充材料的最终图号请以投稿版本为准；本表按「图件族」组织。更细的对照见 [`docs/figure_map.md`](docs/figure_map.md)。
+> **已发表论文 Fig. 2b–e** 的逐图对应见 [`docs/figure_map.md`](docs/figure_map.md) 第 0 节；**3-1009 批次**（BALB/c + AG129，肺 + 脾，G1–G4）是独立实验，未包含在该论文 Fig. 1–4 中，图号待定。更细的对照见 [`docs/figure_map.md`](docs/figure_map.md)。
 
 ---
 
@@ -205,7 +212,7 @@ Rscript scripts/3mice_pipeline/04_go_enrich_bubble.R
 ## 7. 注意事项
 
 1. **AG129 G3 脾只有 2 个样本**，统计效力有限；BALB/c 脾也各缺 1 个重复。解读该组结果时请谨慎。
-2. **G1–G4 是代号**；G3/G4 的具体药物名尚未写入脚本。拿到药名后，改 `common.R` 里的 `GROUP_DESC` 即可统一替换图例。
+2. **G3 = Tecovirimat，G4 = DMSO 溶剂对照**；图例仍用 G1–G4 代号，`scripts/1009_pipeline/utils/common.R` 的 `GROUP_DESC` 已写入药名。G3vsG4 是关键药物效应比较，G4vsG3 方向相反。
 3. **GO 正式版为每组 Top5（每图 ≤30 条）**，热图正式版为每组 Top8（每图 ≤48 个基因）；`07-合成图` 里的 GO 面板沿用旧版 Top15，正式 GO 图请看 `05-GO富集/`。
 4. **火山图**：`padj` 为 NA 的基因不显示；y 轴按 99.5% 分位截断，个别超高显著性点会被压到顶端。
 5. **路径**：主流程从仓库根目录运行；如从其他目录运行，设置 `MPXV_PROJECT_ROOT` 指向仓库根。
@@ -217,9 +224,29 @@ Rscript scripts/3mice_pipeline/04_go_enrich_bubble.R
 ## 8. 数据与代码可用性
 
 - **原始数据**：本仓库不包含。原始计数矩阵和测序数据请按论文中的数据可用性声明获取。
-- **代码许可**：暂未指定开源许可证；在论文发表前请联系作者确认使用范围。
-- **引用**：如果本仓库代码对你有帮助，请引用对应论文：
-  *Pathogenic Signatures and Antiviral Evaluation of MPXV Clade Ib in Mouse Models*（作者、期刊信息以正式发表版本为准）。
+- **代码许可**：**MIT License**，见 [`LICENSE`](LICENSE)。
+- **引用**：如果本仓库代码对你有帮助，请引用：
+
+  Han H, Wang X, Wu Y, Yang X, Qian P, Xie X, Jiang D, Wu S, Tang X, Pang Q, Yu H.
+  *Pathogenic signatures and therapeutic evaluation of emergent MPXV Clade Ib in low-susceptibility and immunocompromised mouse models.*
+  **BMC Microbiology.** 2026;26(1):723. doi:[10.1186/s12866-026-05273-4](https://doi.org/10.1186/s12866-026-05273-4)
+
+  BibTeX：
+
+  ```bibtex
+  @article{han2026mpxv,
+    title   = {Pathogenic signatures and therapeutic evaluation of emergent MPXV Clade Ib in low-susceptibility and immunocompromised mouse models},
+    author  = {Han, Hongyu and Wang, Xiaowei and Wu, Yongchang and Yang, Xiaorong and Qian, Peng and Xie, Xiaoqing and Jiang, Dongmei and Wu, Shan and Tang, Xiaoping and Pang, Quanhai and Yu, Haisheng},
+    journal = {BMC Microbiology},
+    volume  = {26},
+    number  = {1},
+    pages   = {723},
+    year    = {2026},
+    doi     = {10.1186/s12866-026-05273-4}
+  }
+  ```
+
+  机器可读的引用信息见 [`CITATION.cff`](CITATION.cff)。
 
 ---
 

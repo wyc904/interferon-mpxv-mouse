@@ -41,7 +41,7 @@ VOLCANO_LABEL_N    <- 10     # 火山图每面板标注 Top N 基因
 
 ## ---- 分组定义 --------------------------------------------------------------
 GROUP_LEVELS <- c("G1", "G2", "G3", "G4")
-GROUP_DESC   <- c(G1 = "uninfected", G2 = "infected", G3 = "treatment 1", G4 = "treatment 2")
+GROUP_DESC   <- c(G1 = "uninfected", G2 = "infected", G3 = "Tecovirimat", G4 = "DMSO vehicle")
 GROUP_COLORS <- c(G1 = "#708090", G2 = "#A52A2A", G3 = "#1B9E77", G4 = "#7570B3")
 UP_COL   <- "#C75D69"    # 上调 浅红
 DOWN_COL <- "#4682B4"    # 下调 钢蓝

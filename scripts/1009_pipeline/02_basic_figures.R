@@ -39,7 +39,7 @@ tryCatch({
       labs(x = paste0("PC1: ", pct[1], "% variance"),
            y = paste0("PC2: ", pct[2], "% variance"),
            title = paste0("PCA — ", cache$label),
-           subtitle = "G1 uninfected · G2 infected · G3/G4 treatment",
+           subtitle = "G1 uninfected · G2 infected · G3 Tecovirimat · G4 DMSO vehicle",
            color = "Group", shape = "Group") +
       theme_pub(13)
   }

@@ -11,6 +11,8 @@
 | 5 | [`../scripts/README.md`](../scripts/README.md) | 代码分类、运行顺序、路径变量 | 要运行代码的人 |
 | 6 | [`../legacy/README.md`](../legacy/README.md) | 历史脚本归档说明 + `MANIFEST.tsv` 用法 + 阶段分类 | 要追溯旧版图件的人 |
 | 7 | [`../legacy/FAMILIES.md`](../legacy/FAMILIES.md) | 133 个历史脚本的逐条分类索引（编号/文件名/主分类/原路径） | 要快速定位旧脚本的人 |
+| 8 | [`../CITATION.cff`](../CITATION.cff) | 机器可读的论文引用信息（作者、期刊、DOI） | 要引用本项目的人 |
+| 9 | [`../LICENSE`](../LICENSE) | MIT 许可证 | 要复用代码的人 |
 
 ## 图件预览
 

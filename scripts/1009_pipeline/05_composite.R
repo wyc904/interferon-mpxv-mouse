@@ -83,7 +83,7 @@ tryCatch({
     }
 
     title <- ggdraw() + draw_label(
-      paste0("MPXV infection — ", ds$label, "    (G1 uninfected | G2 infected | G3/G4 treatment)"),
+      paste0("MPXV infection — ", ds$label, "    (G1 uninfected | G2 infected | G3 Tecovirimat | G4 DMSO vehicle)"),
       fontface = "bold", size = 16)
 
     final <- plot_grid(title, plot_grid(plotlist = rows, ncol = 1, rel_heights = relh),

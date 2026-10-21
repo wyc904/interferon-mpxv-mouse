@@ -21,10 +21,10 @@
 |---|---|
 | `G1` | 未感染（uninfected） |
 | `G2` | 感染（infected） |
-| `G3` | 治疗组 1（treatment 1） |
-| `G4` | 治疗组 2（treatment 2） |
+| `G3` | Tecovirimat 治疗组 |
+| `G4` | DMSO 溶剂对照（vehicle） |
 
-> G3/G4 的具体药物名尚未写入脚本；更新 `scripts/1009_pipeline/utils/common.R` 中的 `GROUP_DESC` 即可统一替换图例。
+> G3/G4 的药名已写入 `scripts/1009_pipeline/utils/common.R` 的 `GROUP_DESC`；图例仍保留 G1–G4 代号。关键药物效应比较是 G3vsG4（G4vsG3 为反向）。
 
 ---
 

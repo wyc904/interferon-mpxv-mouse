@@ -1,0 +1,73 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the article below."
+title: "MPXV Clade Ib mouse RNA-seq analysis code"
+type: software
+authors:
+  - family-names: Han
+    given-names: Hongyu
+  - family-names: Wang
+    given-names: Xiaowei
+  - family-names: Wu
+    given-names: Yongchang
+  - family-names: Yang
+    given-names: Xiaorong
+  - family-names: Qian
+    given-names: Peng
+  - family-names: Xie
+    given-names: Xiaoqing
+  - family-names: Jiang
+    given-names: Dongmei
+  - family-names: Wu
+    given-names: Shan
+  - family-names: Tang
+    given-names: Xiaoping
+  - family-names: Pang
+    given-names: Quanhai
+  - family-names: Yu
+    given-names: Haisheng
+repository-code: "https://github.com/wyc904/interferon-mpxv-mouse"
+url: "https://doi.org/10.1186/s12866-026-05273-4"
+license: MIT
+version: 1.0.0
+date-released: "2026-10-21"
+keywords:
+  - MPXV
+  - monkeypox virus
+  - Clade Ib
+  - mouse model
+  - RNA-seq
+  - DESeq2
+  - bioinformatics
+preferred-citation:
+  type: article
+  title: "Pathogenic signatures and therapeutic evaluation of emergent MPXV Clade Ib in low-susceptibility and immunocompromised mouse models"
+  authors:
+    - family-names: Han
+      given-names: Hongyu
+    - family-names: Wang
+      given-names: Xiaowei
+    - family-names: Wu
+      given-names: Yongchang
+    - family-names: Yang
+      given-names: Xiaorong
+    - family-names: Qian
+      given-names: Peng
+    - family-names: Xie
+      given-names: Xiaoqing
+    - family-names: Jiang
+      given-names: Dongmei
+    - family-names: Wu
+      given-names: Shan
+    - family-names: Tang
+      given-names: Xiaoping
+    - family-names: Pang
+      given-names: Quanhai
+    - family-names: Yu
+      given-names: Haisheng
+  journal: "BMC Microbiology"
+  volume: 26
+  issue: 1
+  start: 723
+  year: 2026
+  doi: "10.1186/s12866-026-05273-4"
+  issn: "1471-2180"

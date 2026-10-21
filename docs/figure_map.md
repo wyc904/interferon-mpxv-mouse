@@ -1,6 +1,25 @@
 # 图件 → 脚本 → 输入/输出对照
 
-本表按「图件族」组织，不绑定最终投稿图号；论文排版定稿后可在本表补一列 `Manuscript figure`。
+本表先给出已发表论文的图号对应，再按「图件族」列出仓库内的完整流程。
+
+---
+
+## 0. 已发表论文图号 → 脚本
+
+论文：Han H, Wang X, Wu Y, et al. *Pathogenic signatures and therapeutic evaluation of emergent MPXV Clade Ib in low-susceptibility and immunocompromised mouse models.* **BMC Microbiology.** 2026;26:723. doi:[10.1186/s12866-026-05273-4](https://doi.org/10.1186/s12866-026-05273-4)
+
+| 论文图 | 内容 | 对应脚本 | 说明 |
+|---|---|---|---|
+| Fig. 1 | 四种小鼠的易感性、体重/生存、病毒载量、IHC/H&E | 无 | 湿实验，不涉及转录组代码 |
+| Fig. 2a | 采样示意图 | 无 | 示意图 |
+| Fig. 2b | UpSet：C57BL/6 vs BALB/c，3/5/7/10 dpi | `scripts/3mice_pipeline/02_upset_analysis.R` | 输出 `Upset_DEGs_Interferon_Mice.pdf` |
+| Fig. 2c | 火山图 2×4（两品系 × 四时间点） | `legacy/scripts/015_8bc-2次调图.R` | 交互式脚本，需预先载入 `count_matrix` 和 `sample_info`；只生成单张火山图，2×4 拼图未在仓库中自动化 |
+| Fig. 2d | Top DEG 热图 | `scripts/3mice_pipeline/03_heatmap_top_genes.R` | 输出 `TopDEGs_Heatmap_C57_BALB.pdf` |
+| Fig. 2e | GO 气泡图（上/下调） | `scripts/3mice_pipeline/04_go_enrich_bubble.R` | 输出 `GO_Bubble_Up/Down_Regulated_v2.pdf`；具体通路条数随版本/参数变化 |
+| Fig. 3 | MPXV Ib vs IIb 在 STAT1−/− 小鼠中的致病性 | 无 | 湿实验 |
+| Fig. 4 | Tecovirimat 药效（C57BL/6、AGB6、STAT1−/−） | 无 | 湿实验；3-1009 的 G3/G4 是另一批 BALB/c + AG129 数据，不对应 Fig. 4 |
+
+> **3-1009 批次的位置**：该批次（BALB/c + AG129，肺 + 脾，G1–G4）是独立的 RNA-seq 实验，**未包含在 BMC Microbiology 2026 论文的 Fig. 1–4 中**；图号待定（如用于后续论文，请在此处补充）。下面的第 1 节是它的完整流程。
 
 ---
 
