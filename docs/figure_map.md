@@ -21,6 +21,8 @@
 
 > **3-1009 批次的位置**：该批次（BALB/c + AG129，肺 + 脾，G1–G4）是独立的 RNA-seq 实验，**未包含在 BMC Microbiology 2026 论文的 Fig. 1–4 中**；图号待定（如用于后续论文，请在此处补充）。下面的第 1 节是它的完整流程。
 
+论文图形摘要见 [`figures/paper_Figa.png`](figures/paper_Figa.png)，Fig. 2 原图见 [`figures/paper_Fig2.png`](figures/paper_Fig2.png)（© The Authors，CC BY-NC-ND 4.0，未修改）。
+
 ---
 
 ## 1. 主流程：4 套数据集（BALB/c / AG129 × 肺 / 脾）

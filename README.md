@@ -2,13 +2,21 @@
 
 **Pathogenic signatures and therapeutic evaluation of emergent MPXV Clade Ib in low-susceptibility and immunocompromised mouse models**
 
-*BMC Microbiology* 2026, 26:723 · [doi:10.1186/s12866-026-05273-4](https://doi.org/10.1186/s12866-026-05273-4)
+*BMC Microbiology* 2026, 26:723 · [论文页面](https://link.springer.com/article/10.1186/s12866-026-05273-4) · [PDF](https://link.springer.com/content/pdf/10.1186/s12866-026-05273-4.pdf) · [doi:10.1186/s12866-026-05273-4](https://doi.org/10.1186/s12866-026-05273-4)
 
 本仓库包含该研究转录组部分的**可复现分析代码**：DESeq2 差异分析、PCA、DEG 数量柱状图、韦恩图、UpSet 图、火山图、GO 富集气泡图、热图以及投稿用合成图。
 
 > **本仓库不包含原始数据。** 计数矩阵、RDS 缓存、Excel 结果表、论文稿件、参考文献 PDF 均未上传。仓库只保留代码、样本表、分析说明和图件预览。
 
 **研究背景**：猴痘病毒（MPXV）Clade Ib 是近年传播的毒株分支。本项目用 **BALB/c（免疫正常）** 与 **AG129（I 型干扰素受体缺陷）** 小鼠比较 MPXV 感染后的肺、脾转录组反应，并评估 **Tecovirimat（G3）** 与 **DMSO 溶剂对照（G4）** 相对感染组的转录组变化。分析重点是干扰素/抗病毒通路、DEG 数量与方向、GO 富集和关键基因热图。
+
+## 图形摘要
+
+![Graphical abstract](docs/figures/paper_Figa.png)
+
+*图片来源：Han et al., BMC Microbiology 2026;26:723（[论文页面](https://link.springer.com/article/10.1186/s12866-026-05273-4)）。© The Authors，按 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) 许可；图片未修改。代码采用 MIT，图片不适用 MIT。*
+
+**论文摘要要点**：作者建立了 STAT1−/−、AGB6、C57BL/6、BALB/c 四种小鼠的鼻内 MPXV Clade Ib 感染模型；敏感品系出现明显体重下降、高组织病毒载量和严重病理。感染早期脾 RNA-seq 的 DEG 主要富集于干扰素介导的抗病毒通路和炎症细胞因子通路，适应性免疫相关基因下调。Clade Ib 在相同条件下比 Clade IIb 更严重；Tecovirimat 在多个模型中显示抗病毒效果。
 
 ---
 
@@ -197,6 +205,14 @@ Rscript scripts/3mice_pipeline/04_go_enrich_bubble.R
 
 > **已发表论文 Fig. 2b–e** 的逐图对应见 [`docs/figure_map.md`](docs/figure_map.md) 第 0 节；**3-1009 批次**（BALB/c + AG129，肺 + 脾，G1–G4）是独立实验，未包含在该论文 Fig. 1–4 中，图号待定。更细的对照见 [`docs/figure_map.md`](docs/figure_map.md)。
 
+### 已发表论文 Fig. 2（本项目代码对应的主图）
+
+![Figure 2](docs/figures/paper_Fig2.png)
+
+*Fig. 2 from Han et al., BMC Microbiology 2026;26:723（[论文页面](https://link.springer.com/article/10.1186/s12866-026-05273-4)）。© The Authors，按 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) 许可；图片未修改。*
+
+Panel **b**（UpSet）、**d**（热图）、**e**（GO 气泡图）分别对应 `scripts/3mice_pipeline/02_upset_analysis.R`、`03_heatmap_top_genes.R`、`04_go_enrich_bubble.R`；panel **c**（火山图 2×4）对应 `legacy/scripts/015_8bc-2次调图.R`（交互式，只生成单张图，拼图未自动化）。完整对照见 [`docs/figure_map.md`](docs/figure_map.md)。
+
 ---
 
 ## 6. 数据与参数
@@ -250,6 +266,17 @@ Rscript scripts/3mice_pipeline/04_go_enrich_bubble.R
 
 ---
 
-## 9. 联系
+## 9. 相关文献
+
+| 文献 | 与本项目的关系 | 一句话摘要 |
+|---|---|---|
+| Prévost J, et al. *Pathogenicity and antiviral treatment of clade Ib Monkeypox virus infection in mice.* **Antiviral Research.** 2026. [doi:10.1016/j.antiviral.2026.106377](https://doi.org/10.1016/j.antiviral.2026.106377) | CAST/EiJ 小鼠的 Clade Ib 致死模型 | 在 CAST/EiJ 小鼠中 Clade Ib 可致死；tecovirimat、cidofovir、brincidofovir 均显示保护作用。 |
+| Feng Y, et al. *Differential pathogenesis and antiviral treatment outcomes of MPXV clade Ib and clade IIb in a BALB/c mouse model.* **Emerging Microbes & Infections.** 2026. [doi:10.1080/22221751.2026.2724633](https://doi.org/10.1080/22221751.2026.2724633) | BALB/c 模型中 Clade Ib vs IIb 的直接比较 | Clade Ib 比 Clade IIb 致病性更强；cidofovir 对 Clade Ib 需要更高剂量。 |
+
+> 以上为文字摘要，未复制原文图片；相关论文的图片和全文版权归各自期刊/作者，请通过 DOI 访问原文。
+
+---
+
+## 10. 联系
 
 问题、复现困难或数据请求，请通过 GitHub Issues 联系仓库维护者。

@@ -24,6 +24,13 @@
 - `volcano_panel_c.png` — 火山图网格
 - `composite_BALBc_Lung.png`、`composite_BALBc_Spleen.png`、`composite_AG129_Lung.png`、`composite_AG129_Spleen.png` — 四套数据集合成图
 
+### 已发表论文图片
+
+- `paper_Figa.png` — 论文图形摘要（graphical abstract）
+- `paper_Fig2.png` — 论文 Fig. 2（C57BL/6 vs BALB/c 脾转录组；panel b–e 对应本仓库 3mice pipeline）
+
+> 这两张图来自 Han et al., *BMC Microbiology* 2026;26:723，© The Authors，按 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) 许可；图片未修改。代码采用 MIT，**图片不适用 MIT**。
+
 ## 数据
 
 本仓库**不包含原始数据**。需要的数据文件、放置位置和命名规则见 [`../data/README.md`](../data/README.md)。
